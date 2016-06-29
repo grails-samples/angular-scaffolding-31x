@@ -1,0 +1,38 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a ui-sref="post.create" class="create">New Post</a></li>
+    </ul>
+</div>
+<div id="list-post" class="content scaffold-list" role="main">
+    <h1>Post List</h1>
+    <table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Date Published</th>
+      <th>Title</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-class="{'even': $index%2 == 0, 'odd': $index%2 == 1}" ng-repeat="post in vm.postList">
+      <td>
+        <a ui-sref="post.show({id: post.id})">{{post.id}}</a>
+      </td>
+      <td>
+        <span>{{post.datePublished | date:'yyyy-MM-dd HH:mm:ss Z'}}</span>
+      </td>
+      <td>
+        <span>{{post.title}}</span>
+      </td>
+      <td>
+        <span>{{post.body}}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    <!--    <div class="pagination">
+            <g:paginate total="${partCount ?: 0}" />
+        </div>-->
+</div>
